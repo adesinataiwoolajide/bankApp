@@ -8,12 +8,12 @@
 	try{
 		$general = new General($db);
 		//assigning session variable to a variable
-		$email = $_SESSION['user_name'];
+		$username = $_SESSION['username'];
 		$action = "Logged Out";
-		$his = $general->getUserDetailsandAddActivity($email, $action);
-		$_SESSION['success'] = $email. " ". "You have logged out successfully";
+		$his = $general->getUserDetailsandAddActivity($username, $action);
+		$_SESSION['success'] = $username. " ". "You have logged out successfully";
 		
-		unset($email);
+		unset($username);
 		//destroying the session
 		session_destroy();
 		//redirecting to the index page

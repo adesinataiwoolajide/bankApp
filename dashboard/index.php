@@ -16,7 +16,7 @@
 				<div class="row">
 
 					<!-- Grid Item -->
-					<div class="col-xl-3 col-sm-6">
+					<div class="col-xl-3 col-sm-6"  onclick="location.href='transactions.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-primary text-white">
@@ -30,8 +30,8 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter">0</div>
-										<span class="d-block">Transaction</span>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getCountSingleStatement($account_number); ?></div>
+										<span class="d-block">MY TRANSACTIONS</span>
 									</div>
 									<!-- /media body -->
 
@@ -44,7 +44,7 @@
 						<!-- /card -->
 
 					</div>
-					<div class="col-xl-3 col-sm-6">
+					<div class="col-xl-3 col-sm-6" onclick="location.href='statements.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-secondary text-white">
@@ -58,8 +58,8 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter">0</div>
-										<span class="d-block">Statement </span>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getCountSingleStatement($account_number); ?></div>
+										<span class="d-block">MY STATEMENTS </span>
 									</div>
 									<!-- /media body -->
 
@@ -75,7 +75,7 @@
 					<!-- /grid item -->
 
 					<!-- Grid Item -->
-					<div class="col-xl-3 col-sm-6">
+					<div class="col-xl-3 col-sm-6"  onclick="location.href='activities.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-info text-white">
@@ -89,8 +89,8 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter">0</div>
-										<span class="d-block">Activities</span>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $general->getCountLog($username) ?></div>
+										<span class="d-block">MY ACTIVITIES</span>
 									</div>
 									<!-- /media body -->
 
@@ -120,8 +120,8 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter">0</div>
-										<span class="d-block">BVN</span>
+										<div class="display-3 font-weight-600 mb-1 init-counter">1</div>
+										<span class="d-block">NUMBERS OF ACCOUNT</span>
 									</div>
 									<!-- /media body -->
 
@@ -135,11 +135,153 @@
 
 					</div>
 				</div>
+				<div class="row">
+
+					<!-- Grid Item -->
+					<div class="col-xl-6 col-sm-6"  onclick="location.href='';">
+
+						<div class="dt-card">
+
+							<!-- Card Header -->
+							<div class="dt-card__header mb-4">
+
+								<!-- Card Heading -->
+								<div class="dt-card__heading">
+									<h3 class="dt-card__title">Exchange Rate</h3>
+								</div>
+								<!-- /card heading -->
+
+								<!-- Card Tools -->
+								<div class="dt-card__tools">
+									<a href="javascript:void(0)" class="dt-card__more"><?php echo date("Y-M-D") ?></a>
+								</div>
+								<!-- /card tools -->
+
+							</div>
+							<!-- /card header -->
+
+							<!-- Card Body -->
+							<div class="dt-card__body pb-5">
+
+								<!-- Tables -->
+								<div class="table-responsive ps-custom-scrollbar">
+									<table class="table table-ordered table-bordered-0 mb-0">
+										<thead>
+										<tr>
+											<th class="text-uppercase">Currency</th>
+											<th class="text-uppercase text-right" scope="col">Rate (NG)
+											</th>
+											
+											<th class="text-uppercase text-right" scope="col">Fee</th>
+										</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>USD</td>
+												<td class="text-right text-nowrap">1 </td>
+												<td class="text-center">355</td>
+												<td class="text-right text-danger">-$2.33</td>
+											</tr>
+
+											<tr>
+												<td>POUNDS</td>
+												<td class="text-right text-nowrap">1 </td>
+												<td class="text-center">555</td>
+												<td class="text-right text-danger">-$6.33</td>
+											</tr>
+											<tr>
+												<td>POUNDS</td>
+												<td class="text-right text-nowrap">1 </td>
+												<td class="text-center">555</td>
+												<td class="text-right text-danger">-$6.33</td>
+											</tr>
+											<tr>
+												<td>POUNDS</td>
+												<td class="text-right text-nowrap">1 </td>
+												<td class="text-center">555</td>
+												<td class="text-right text-danger">-$6.33</td>
+											</tr>
+										
+										
+										</tbody>
+									</table>
+								</div>
+								<!-- /tables -->
+
+							</div>
+							<!-- /card body -->
+
+							
+						</div>
+
+					</div>
+					
+					<div class="col-xl-6 col-md-6">
+
+						<!-- Card -->
+						<div class="dt-card bg-image-v7 bg-overlay bg-overlay-black overlay-opacity-0_1 text-white overflow-hidden">
+
+							<!-- Overlay Content -->
+							<div class="bg-overlay__inner">
+
+								<!-- Card Body -->
+								<div class="dt-card__body py-6">
+
+									<!-- Grid -->
+									<div class="row no-gutters">
+
+										<!-- Grid Item -->
+										<div class="col-sm-7">
+											<div class="text-center text-sm-left mb-8 mb-sm-0">
+												<p class="display-5 font-weight-500">
+													Download our app and start quickly
+												</p>
+												<span class="d-block mb-3">Available on</span>
+												<div class="mb-2">
+													<a href="javascript:void(0)" class="d-inline-block">
+														<img src="assets/images/dashboard/google-play-store.png"
+															alt="Play Store" class="img-fluid">
+													</a>
+												</div>
+												<div>
+													<a href="javascript:void(0)" class="d-inline-block">
+														<img src="assets/images/dashboard/apple-app-store.png"
+															alt="App Store" class="img-fluid">
+													</a>
+												</div>
+											</div>
+										</div>
+										<!-- /grid item -->
+
+										<!-- Grid Item -->
+										<div class="col-sm-5 align-self-sm-end text-center text-sm-right">
+											<img class="img-fluid mb-n18"
+												src="assets/images/dashboard/iphone.png" alt="App Store">
+										</div>
+										<!-- /grid item -->
+
+									</div>
+									<!-- /grid -->
+
+								</div>
+								<!-- /card body -->
+
+							</div>
+							<!-- /overlay content -->
+
+						</div>
+						<!-- /card -->
+
+						</div>
+					</div>
+					
+				</div>
 				
 			</div>
-               
+				
+			
 			<footer class="dt-footer">
-				Copyright Jethro Systems © <?php echo date("Y"); ?>
+				Copyright Statement Pal © <?php echo date("Y"); ?>
 			</footer>
 
         </div>

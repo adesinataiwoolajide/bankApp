@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <!-- /meta tags -->
-<title>BANKING APP</title>
+<title>STATEMENT PAL</title>
 
 <!-- Site favicon -->
 <link rel="shortcut icon" href="dashboard/assets/images/favicon.ico" type="image/x-icon">

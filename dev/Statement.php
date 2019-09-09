@@ -61,7 +61,19 @@
             $query->bindValue(":account_number", $account_number);
 			$query->execute();
 			return $query->fetch();
-        }
+		}
+
+		public function getCountSingleStatement($account_number)
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(id) as total_statement FROM statement WHERE account=:account_number");
+            $query->bindValue(":account_number", $account_number);
+			$query->execute();
+			$state =$query->fetch();
+			return $state['total_statement'];
+		}
+		
+		
     }
 
 ?>

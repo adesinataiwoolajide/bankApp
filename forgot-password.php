@@ -15,16 +15,17 @@
 
                     <div class="dt-login__bg-content">
                         <!-- Login Title -->
-                        <h1 class="dt-login__title">Sign Up</h1>
+                        <h1 class="dt-login__title">Login</h1>
                         <!-- /login title -->
 
-                        <p class="f-16">Register Your Account with Statement Pal.</p>
+                        <p class="f-16">Retrieve your Statement Pal Account.</p>
                     </div>
+
 
                     <!-- Brand logo -->
                     <div class="dt-login__logo">
                         <a class="dt-brand__logo-link" href="./">
-                            <!-- <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Bank"> -->
+                            <!-- <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Drift"> -->
                         </a>
                     </div>
                     <!-- /brand logo -->
@@ -39,43 +40,21 @@
                     <div class="dt-login__content-inner">
 
                         <!-- Form -->
-                        <form action="dashboard/registration.php" method="POST">
+                        <form action="process_forgot.php" method="POST">
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="user-name">Full Name</label>
+                                <label class="sr-only" for="user-name">User Name</label>
                                 <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="Full Name" name="fullname" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="user-name">Account Number</label>
-                                <input type="number" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="Enter Account Number" name="account_number" required>
+                                       placeholder="User Name OR Account Number" name="username">
                             </div>
                             <!-- /form group -->
-
+                            
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="email-1">User Name</label>
-                                <input type="text" class="form-control" id="email-1" aria-describedby="email-1"
-                                       placeholder="Enter User Name" name="username" required>
-                            </div>
-                            <!-- /form group -->
-
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                <label class="sr-only" for="password-1">Password</label>
-                                <input type="password" class="form-control" id="password-1" placeholder="Password" name="password" required>
-                            </div>
-                            <!-- /form group -->
-
-                           
-
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                <button type="submit" name="register" class="btn btn-primary text-uppercase">Sign up</button>
+                                <button type="submit" class="btn btn-primary text-uppercase" name="retrieve">Retrive Account</button>
                                 <span class="d-inline-block ml-4">Or
-                                    <a class="d-inline-block font-weight-500 ml-3" href="./">Login</a>
+                                <a class="d-inline-block font-weight-500 ml-3" href="register.php">Register</a>
                                 </span>
                             </div>
                             <!-- /form group -->
@@ -88,7 +67,7 @@
 
                     <!-- Login Content Footer -->
                     <div class="dt-login__content-footer">
-                        <a href="forgot-password.php">Can’t access your account?</a>
+                        <a href="./">already have account?</a>
                     </div>
                     <!-- /login content footer -->
 

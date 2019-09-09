@@ -18,14 +18,14 @@
                         <h1 class="dt-login__title">Login</h1>
                         <!-- /login title -->
 
-                        <p class="f-16">Sign in and explore in-built apps of Drift.</p>
+                        <p class="f-16">Sign in to Statement Pal.</p>
                     </div>
 
 
                     <!-- Brand logo -->
                     <div class="dt-login__logo">
-                        <a class="dt-brand__logo-link" href="index.html">
-                            <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Drift">
+                        <a class="dt-brand__logo-link" href="./">
+                            <!-- <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Drift"> -->
                         </a>
                     </div>
                     <!-- /brand logo -->
@@ -76,7 +76,7 @@
 
                     <!-- Login Content Footer -->
                     <div class="dt-login__content-footer">
-                        <a href="page-forgot-password.html">Can’t access your account?</a>
+                        <a href="forgot-password.php">Can’t access your account?</a>
                     </div>
                     <!-- /login content footer -->
 

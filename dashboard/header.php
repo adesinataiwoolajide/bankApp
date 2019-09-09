@@ -9,6 +9,7 @@ if(!isset($_SESSION['id'])){ ?> <script> window.location=(".././")</script><?php
 
 }
 $account_number  = $_SESSION['account_number'];
+$username = $_SESSION['username'];
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ $account_number  = $_SESSION['account_number'];
 <meta name="description" content="">
 <meta name="keywords" content="">
 <!-- /meta tags -->
-<title>Bank Application</title>
+<title>STATEMENT PAL</title>
 
 	<!-- Site favicon -->
 	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">

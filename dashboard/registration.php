@@ -26,6 +26,8 @@
 			
 			}else{
 				if($registration->addCustomer($full_name, $account_number, $username, $password)){
+					$action ="Registered Account";
+					$his = $general->getUserDetailsandAddActivity($username, $action);
                     $_SESSION['success'] = "You Have Registered Your Account Successfully";
                     $general->redirect(".././");
                 }else{

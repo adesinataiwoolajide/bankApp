@@ -9,11 +9,11 @@
 			return $input;
 		}
 
-		public function operationHistory($action, $email){
+		public function operationHistory($action, $username){
 			try{
                 $db = Database::getInstance()->getConnection();
-				$history = $db->prepare("INSERT INTO activity(action, user_details)VALUES(:action, :email)");
-				$arrr = array(':action'=>$action, ':email'=>$email);
+				$history = $db->prepare("INSERT INTO activity(action, user_details)VALUES(:action, :username)");
+				$arrr = array(':action'=>$action, ':username'=>$username);
 				$result = $history->execute($arrr);
 				if(!empty($result)){
 					return true;
@@ -31,22 +31,30 @@
 		    exit();
 		}
 
-		public function userAccessLevel($action, $email){
+		public function userAccessLevel($action, $username){
 			
-			$action= $this->operationHistory($action, $email);
-			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Dashboard";
+			$action= $this->operationHistory($action, $username);
+			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Statement Pal Dashboard";
 			$this->redirect("./");
 			
         }
         
-        public function getUserDetailsandAddActivity($email, $action){
+		public function useForgotLogin($action, $username){
+			
+			$action= $this->operationHistory($action, $username);
+			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Statement Pal Dashboard";
+			$this->redirect("dashboard/./");
+			
+        }
+        
+        public function getUserDetailsandAddActivity($username, $action){
 			try{
                 $db = Database::getInstance()->getConnection();
-				$loging_out = $db->prepare("SELECT * FROM admin_login WHERE user_name =:email");
-				$arr = array(':email' =>$email);
+				$loging_out = $db->prepare("SELECT * FROM registration WHERE username =:username");
+				$arr = array(':username' =>$username);
 				$loging_out->execute($arr);
 				$feting = $loging_out->fetch();	
-				$new =$this->operationHistory($action, $email);
+				$new =$this->operationHistory($action, $username);
 			}catch(PDOException $e){
 				echo $e->getMessage();
 				return false;
@@ -66,6 +74,16 @@
 				return false;
 			}
 		
+		}
+
+		public function getCountLog($username)
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(act_id) as total_log FROM activity WHERE user_details=:username");
+            $query->bindValue(":username", $username);
+			$query->execute();
+			$log =$query->fetch();
+			return $log['total_log'];
 		}
 	}
 ?>

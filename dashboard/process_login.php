@@ -12,8 +12,7 @@
 			$password = sha1($_POST['password']);
 
 			if($login->checkLogin($username, $password)){
-			
-				$_SESSION['error'] = "Oooopss!!! Invalid Username or Password";
+				$_SESSION['error'] = "Oooopss!!! No Account was found for $username";
 				$general->redirect(".././");
 			}else{
 				$result = $registration->getSingleCustomerList($username);
@@ -22,10 +21,11 @@
 				$_SESSION['account_number'] = $result['account_number'];
 				$_SESSION['id'] = $result['registration_id'];
 				$action ="Logged In";
+				$his = $general->getUserDetailsandAddActivity($username, $action);
 				$login =  $general->userAccessLevel($action, $username);
 			}
 		}else{
-			$_SESSION['error'] = "Please Fill The Below Form To Access The System";
+			$_SESSION['error'] = "Please Fill The Below Form To Access Your Statement Pal";
 			$general->redirect(".././");
 		}
 	}catch(PDOException $e){
