@@ -3,7 +3,7 @@
 	session_start();
 	require_once("dev/autoload.php");
     $login = new Login;
-    $registration = new Registration;
+    $registration = new Customer;
     $general = new General;
 	try{
 		$general = new General($db);

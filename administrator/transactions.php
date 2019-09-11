@@ -1,7 +1,5 @@
-<?php include_once("../administrator/header.php");
-    include_once("details.php");
-    $account = $statement->getSingleAccount($account_number);
-    $customer = $statement->getAllSingleCustomerAccount($customerid);
+<?php include_once("header.php");
+    $account = $statement->getAllTransAccount();
 ?>
 
     <main class="dt-main">
@@ -36,9 +34,9 @@
 
                             <!-- Card Body -->
                             <div class="dt-card__body"><?php
-                                if(count($customer) ==0){ ?>
+                                if(count($account) ==0){ ?>
                                     <p align="center" style="color: red"><i class="icon icon-table"></i> 
-                                        No Transaction was found for <?php echo $_SESSION['username'] ?>
+                                        No Transaction was found for All Customers
                                     </p><?php
 
                                 }else{ ?>
@@ -63,14 +61,14 @@
                                             <tbody> 
                                                 <?php
                                                 $y=1; 
-                                                foreach ($customer as $accounts){
+                                                foreach ($account as $accounts){
                                                     $split = explode(",", $accounts['stmt']); 
                                                     $bdate = $split[3]; $bdat = explode(":", $bdate);
                                                     $starting_date = $bdat[1];
                                                     $vdate = $split[2]; $vdat = explode(":", $vdate);
                                                     $ending_date = $vdat[2]; ?>
                                                     <tr class="gradeX">
-                                                        <td><?php echo $account_number ?></td>
+                                                        <td><?php echo $accounts['account'] ?></td>
                                                        <?php 
                                                             //$stmtid = $split[1];
                                                            // $stmt = explode(":", $stmtid);
@@ -150,4 +148,4 @@
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("../administrator/footer.php") ?>
+<?php include_once("footer.php") ?>

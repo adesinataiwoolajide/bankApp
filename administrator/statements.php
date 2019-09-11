@@ -1,6 +1,5 @@
-<?php include_once("../administrator/header.php");
-    include_once("details.php");
-    $account = $statement->getSingleAccount($account_number);
+<?php include_once("header.php");
+    $account = $statement->getAllAccount();
 ?>
 
 <main class="dt-main">
@@ -53,7 +52,7 @@
                                            <select class="form-control" required name="account_number">
                                                 <option value=""> -- Select Account Number  -- </option>
                                                 <option value=""> </option><?php 
-                                                foreach($statement->getSingleCustAccount($customerid) as $show){  ?>
+                                                foreach($statement->getAllAccount() as $show){  ?>
                                                     <option value="<?php echo $show['account'] ?> "><?php echo $show['account'] ?> </option><?php 
                                                 } ?>
                                             </select>
@@ -106,4 +105,4 @@
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("../administrator/footer.php") ?>
+<?php include_once("footer.php") ?>

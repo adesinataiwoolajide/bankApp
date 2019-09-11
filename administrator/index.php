@@ -1,5 +1,5 @@
-<?php include_once("../administrator/header.php"); include_once("details.php"); ?>
- 
+<?php include_once("header.php"); ?>
+
 <main class="dt-main">
 	<?php include_once("sidebar.php"); ?>
 
@@ -9,14 +9,14 @@
 
 				<!-- Page Header -->
 				<div class="dt-page__header">
-					<h1 class="dt-page__title">Statement Pal Dashboard - <?php echo $_SESSION['full_name'] ?></h1>
+					<h1 class="dt-page__title">Statement Pal Admin Dashboard - <?php echo $_SESSION['full_name'] ?></h1>
 				</div>
 				
 				
 				<div class="row">
 
 					<!-- Grid Item -->
-					<div class="col-xl-4 col-sm-6"  onclick="location.href='transactions.php';">
+					<div class="col-xl-3 col-sm-6"  onclick="location.href='transactions.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-primary text-white">
@@ -30,8 +30,10 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getAccountTransctions($customerid); ?></div>
-										<span class="d-block">MY TRANSACTIONS</span>
+										<div class="display-3 font-weight-600 mb-1 init-counter">
+											<?php echo $statement->getAllAccountTransctions(); ?>
+										</div>
+										<span class="d-block">CUSTOMER TRANSACTIONS</span>
 									</div>
 									<!-- /media body -->
 
@@ -44,7 +46,7 @@
 						<!-- /card -->
 
 					</div>
-					<div class="col-xl-4 col-sm-6" onclick="location.href='statements.php';">
+					<div class="col-xl-3 col-sm-6" onclick="location.href='statements.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-secondary text-white">
@@ -58,8 +60,8 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getCountSingleStatement($account_number); ?></div>
-										<span class="d-block">MY STATEMENTS </span>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getAllCountSingleStatement(); ?></div>
+										<span class="d-block">CUSTOMER STATEMENTS </span>
 									</div>
 									<!-- /media body -->
 
@@ -75,7 +77,7 @@
 					<!-- /grid item -->
 
 					<!-- Grid Item -->
-					<div class="col-xl-4 col-sm-6"  onclick="location.href='accounts.php';">
+					<div class="col-xl-3 col-sm-6"  onclick="location.href='accounts.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-info text-white">
@@ -89,8 +91,36 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getCountAccount($customerid) ?></div>
-										<span class="d-block">MY ACCOUNTS</span>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getAllCountAccount()?></div>
+										<span class="d-block">CUSTOMER ACCOUNTS</span>
+									</div>
+									<!-- /media body -->
+
+								</div>
+								<!-- /media -->
+							</div>
+							<!-- /card body -->
+
+						</div>
+						<!-- /card -->
+
+					</div>
+					<div class="col-xl-3 col-sm-6"  onclick="location.href='accounts.php';">
+
+						<!-- Card -->
+						<div class="dt-card dt-card__full-height bg-info text-white">
+
+							<!-- Card Body -->
+							<div class="dt-card__body p-xl-8 py-sm-8 py-6 px-4">
+								<!-- Media -->
+								<div class="media">
+
+									<i class="icon icon-visits icon-6x mr-6 align-self-center"></i>
+
+									<!-- Media Body -->
+									<div class="media-body">
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getAllCountAccount()?></div>
+										<span class="d-block">CUSTOMER HISTORY</span>
 									</div>
 									<!-- /media body -->
 
@@ -266,4 +296,4 @@
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("../administrator/footer.php") ?>
+<?php include_once("footer.php") ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2019 at 02:05 PM
+-- Generation Time: Sep 11, 2019 at 05:23 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.2.17
 
@@ -94,7 +94,61 @@ INSERT INTO `activity` (`act_id`, `action`, `user_details`, `time_added`) VALUES
 (42, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 11:58:16'),
 (43, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 11:58:21'),
 (44, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 11:58:24'),
-(45, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 11:58:24');
+(45, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 11:58:24'),
+(46, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 12:34:34'),
+(47, 'Retrieved Account', 'tolajide74@gmail.com', '2019-09-11 12:37:23'),
+(48, 'Retrieved Account', '1000818831', '2019-09-11 12:37:41'),
+(49, 'Retrieved Account', 'tolajide74@gmail.com', '2019-09-11 12:41:03'),
+(50, 'Retrieved Account', '1000818831', '2019-09-11 12:41:22'),
+(51, 'Retrieved Account', '1000818831', '2019-09-11 12:42:11'),
+(52, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 13:59:28'),
+(53, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 14:00:21'),
+(54, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 14:00:21'),
+(55, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:02:35'),
+(56, 'Retrieved Account', 'tolajide74@gmail.com', '2019-09-11 14:02:41'),
+(57, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 14:02:44'),
+(58, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 14:02:44'),
+(59, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:03:53'),
+(60, 'Retrieved Account', 'tolajide74@gmail.com', '2019-09-11 14:03:57'),
+(61, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 14:04:00'),
+(62, 'Update Password', 'tolajide74@gmail.com', '2019-09-11 14:04:00'),
+(63, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:08:23'),
+(64, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:10:43'),
+(65, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:10:43'),
+(66, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:10:45'),
+(67, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:10:47'),
+(68, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:10:47'),
+(69, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:11:16'),
+(70, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:23:13'),
+(71, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:23:13'),
+(72, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:24:36'),
+(73, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:24:39'),
+(74, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:24:39'),
+(75, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:24:41'),
+(76, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:47:18'),
+(77, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:47:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `administrator`
+--
+
+CREATE TABLE `administrator` (
+  `user_id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL,
+  `time_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `administrator`
+--
+
+INSERT INTO `administrator` (`user_id`, `name`, `username`, `password`, `status`, `time_registered`) VALUES
+(1, 'Adesina Taiwo Olajumoke', 'tolajide74@gmail.com', 'b63e58a251cbdb2678919dbcd79fdc519c927304', 1, '2018-12-12 08:35:35');
 
 -- --------------------------------------------------------
 
@@ -156,6 +210,12 @@ ALTER TABLE `activity`
   ADD PRIMARY KEY (`act_id`);
 
 --
+-- Indexes for table `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- Indexes for table `registration`
 --
 ALTER TABLE `registration`
@@ -175,7 +235,13 @@ ALTER TABLE `statement`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `act_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `act_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT for table `administrator`
+--
+ALTER TABLE `administrator`
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `registration`

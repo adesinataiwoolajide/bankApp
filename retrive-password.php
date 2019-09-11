@@ -1,11 +1,12 @@
 <?php include_once("header.php");
     require_once("dev/autoload.php");
     $username = $_GET['username'];
+    $account_number = $username;
     
     $login = new Login;
-	$registration = new Registration;
+	$registration = new Customer;
     $general = new General;
-    $result = $registration->getSingleCustomerList($username); 
+    $result = $registration->getSingleCustomerList($username, $account_number); 
     
 ?>
 

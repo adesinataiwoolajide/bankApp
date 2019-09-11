@@ -1,6 +1,5 @@
-<?php include_once("../administrator/header.php");
-    include_once("details.php");
-    $account = $statement->getSingleAccount($account_number);
+<?php include_once("header.php");
+    $account = $statement->getAllAccount();
 ?>
 
     <main class="dt-main">
@@ -35,7 +34,7 @@
                 <div class="row">
 
                     <!-- Grid Item --><?php 
-                    foreach($statement->getSingleCustAccount($customerid) as $list){ 
+                    foreach($statement->getAllAccount() as $list){ 
                         $accounting = $list['account']; ?>
                         <div class="col-xl-3 col-sm-6"  onclick="location.href='account_transactions.php?account_number=<?php echo $accounting ?>';">
 
@@ -88,4 +87,4 @@
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("../administrator/footer.php") ?>
+<?php include_once("footer.php") ?>

@@ -1,4 +1,6 @@
-<?php include_once("header.php");
+<?php include_once("../administrator/header.php");
+
+    include_once("details.php");
     $account_number = $_GET['account_number'];
     $account = $statement->getSingleAccount($account_number);
     $customer = $statement->getAllSingleCustomerAccount($customerid);
@@ -150,4 +152,4 @@
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("footer.php") ?>
+<?php include_once("../administrator/footer.php") ?>

@@ -15,17 +15,17 @@
 
                     <div class="dt-login__bg-content">
                         <!-- Login Title -->
-                        <h1 class="dt-login__title">Login</h1>
+                        <h1 class="dt-login__title">Admin Login</h1>
                         <!-- /login title -->
 
-                        <p class="f-16">Retrieve your Statement Pal Account.</p>
+                        <p class="f-16">Sign in to Statement Pal Admin with your E-mail.</p>
                     </div>
 
 
                     <!-- Brand logo -->
                     <div class="dt-login__logo">
                         <a class="dt-brand__logo-link" href="./">
-                            <!-- <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Drift"> -->
+                            <!-- <img class="dt-brand__logo-img" src="customer/assets/images/bank.jpg" alt="Drift"> -->
                         </a>
                     </div>
                     <!-- /brand logo -->
@@ -40,22 +40,29 @@
                     <div class="dt-login__content-inner">
 
                         <!-- Form -->
-                        <form action="process_forgot.php" method="POST">
-
+                        <form action="administrator/process_login.php" method="POST">
+                            
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label >E-Mail</label>
                                 <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="Enter Your E-Mail" name="username" required>
+                                       placeholder="Enter Your E Mail" name="username" required>
+                            </div>
+                            <!-- /form group -->
+                           
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label >Password</label>
+                                <input type="password" class="form-control" id="password-1" placeholder="Password" name="password" reuiredq>
                             </div>
                             <!-- /form group -->
                             
                             <!-- Form Group -->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary text-uppercase" name="retrieve">Retrive Account</button>
-                                <span class="d-inline-block ml-4">Or
+                                <button type="submit" class="btn btn-primary btn btn-lg text-uppercase" name="login">Login</button>
+                                <!-- <span class="d-inline-block ml-4">Or
                                 <a class="d-inline-block font-weight-500 ml-3" href="register.php">Register</a>
-                                </span>
+                                </span> -->
                             </div>
                             <!-- /form group -->
 
@@ -66,9 +73,9 @@
                     <!-- /login content inner -->
 
                     <!-- Login Content Footer -->
-                    <div class="dt-login__content-footer">
-                        <a href="./">already have account?</a>
-                    </div>
+                    <!-- <div class="dt-login__content-footer">
+                        <a href="forgot-password.php">Can’t access your account?</a>
+                    </div> -->
                     <!-- /login content footer -->
 
                 </div>

@@ -85,5 +85,15 @@
 			$log =$query->fetch();
 			return $log['total_log'];
 		}
+
+		public function getUserCountLog($username)
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(act_id) as total_log FROM activity WHERE user_details=:username");
+            $query->bindValue(":username", $username);
+			$query->execute();
+			$log =$query->fetch();
+			return $log['total_log'];
+		}
 	}
 ?>

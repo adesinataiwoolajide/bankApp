@@ -40,7 +40,14 @@
         public function getAllAccount()
 		{
 			$db = Database::getInstance()->getConnection();
-			$query = $db->prepare("SELECT * FROM statement ORDER BY full_name ASC");
+			$query = $db->prepare("SELECT DISTINCT account FROM statement ORDER BY account ASC");
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+        public function getAllTransAccount()
+		{
+			$db = Database::getInstance()->getConnection();
+			$query = $db->prepare("SELECT account FROM statement");
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -89,6 +96,15 @@
 			return $state['total_statement'];
 		}
 
+		public function getAllCountSingleStatement()
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(id) as total_statement FROM statement");
+			$query->execute();
+			$state =$query->fetch();
+			return $state['total_statement'];
+		}
+
 		public function countTransactions($accounting)
 		{
 			$db = Database::getInstance()->getConnection();
@@ -117,11 +133,28 @@
 			$state =$query->fetch();
 			return $state['total_account'];
 		}
+		public function getAllCountAccount()
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(DISTINCT account) as total_account FROM statement");
+			$query->execute();
+			$state =$query->fetch();
+			return $state['total_account'];
+		}
 		public function getAccountTransctions($customerid)
 		{
 			$db = Database::getInstance()->getConnection();
             $query = $db->prepare("SELECT count(account) as total_account FROM statement WHERE customerid=:customerid");
             $query->bindValue(":customerid", $customerid);
+			$query->execute();
+			$state =$query->fetch();
+			return $state['total_account'];
+		}
+
+		public function getAllAccountTransctions()
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(account) as total_account FROM statement");
 			$query->execute();
 			$state =$query->fetch();
 			return $state['total_account'];

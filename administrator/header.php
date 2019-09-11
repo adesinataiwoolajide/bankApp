@@ -6,9 +6,13 @@ $registration = new Customer;
 $general = new General;
 $statement = new Statement;
 if(!isset($_SESSION['id'])){ ?> 
-	<script> window.location=(".././")</script><?php 
+<script> window.location=(".././")</script><?php 
 
 }
+
+$username = $_SESSION['username'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

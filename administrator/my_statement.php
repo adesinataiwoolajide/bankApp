@@ -1,6 +1,5 @@
 <?php 
-include_once("../administrator/header.php");
-include_once("details.php");
+include_once("header.php");
 $return = $_SERVER['HTTP_REFERER'];
 ?>
 <main class="dt-main">
@@ -170,7 +169,7 @@ $return = $_SERVER['HTTP_REFERER'];
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("../administrator/footer.php") ?>
+<?php include_once("footer.php") ?>
 
 
    

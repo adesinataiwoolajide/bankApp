@@ -1,7 +1,6 @@
-<?php include_once("../administrator/header.php");
-    include_once("details.php");
+<?php include_once("header.php");
+    $account_number = $_GET['account_number'];
     $account = $statement->getSingleAccount($account_number);
-    $customer = $statement->getAllSingleCustomerAccount($customerid);
 ?>
 
     <main class="dt-main">
@@ -20,10 +19,10 @@
                                     <ol class="mb-0 breadcrumb">
                                         <li class="breadcrumb-item"><a href="./">Home</a></li>
                                         
-                                        <li class="breadcrumb-item"><a href="transactions.php">View All Transactions</a></li>
-                                        <li class="breadcrumb-item"><a href="accounts.php">View My Accounts</a></li>
-                                        
-                                        <li class="breadcrumb-item active" aria-current="page">List of My Trsansactions </li>
+                                        <li class="breadcrumb-item"><a href="account_transactions.php?account_number=<?php echo $account_number ?>">View Transactions</a></li>
+                                        <li class="breadcrumb-item"><a href="accounts.php">View Accounts</a></li>
+                                        <li class="breadcrumb-item"><a href="transactions.php">View Transactions</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">My Trsansactions on <?php echo $account_number ?> </li>
                                     </ol>
                                     
                                 </div>
@@ -36,9 +35,9 @@
 
                             <!-- Card Body -->
                             <div class="dt-card__body"><?php
-                                if(count($customer) ==0){ ?>
+                                if(count($account) ==0){ ?>
                                     <p align="center" style="color: red"><i class="icon icon-table"></i> 
-                                        No Transaction was found for <?php echo $_SESSION['username'] ?>
+                                        No Transaction was found for <?php echo $account ?>
                                     </p><?php
 
                                 }else{ ?>
@@ -63,7 +62,7 @@
                                             <tbody> 
                                                 <?php
                                                 $y=1; 
-                                                foreach ($customer as $accounts){
+                                                foreach ($account as $accounts){
                                                     $split = explode(",", $accounts['stmt']); 
                                                     $bdate = $split[3]; $bdat = explode(":", $bdate);
                                                     $starting_date = $bdat[1];
@@ -71,10 +70,10 @@
                                                     $ending_date = $vdat[2]; ?>
                                                     <tr class="gradeX">
                                                         <td><?php echo $account_number ?></td>
-                                                       <?php 
-                                                            //$stmtid = $split[1];
-                                                           // $stmt = explode(":", $stmtid);
-                                                            //echo $stmt[1];
+                                                        <?php 
+                                                            // $stmtid = $split[1];
+                                                            // $stmt = explode(":", $stmtid);
+                                                            // echo $stmt[1];
                                                         ?>
                                                         <td><?php  echo $ending_date; ?></td>
                                                         <td><?php echo $starting_date; ?></td>
@@ -150,4 +149,4 @@
 <!-- /root -->
 
 <!-- Optional JavaScript -->
-<?php include_once("../administrator/footer.php") ?>
+<?php include_once("footer.php") ?>

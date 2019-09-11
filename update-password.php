@@ -3,7 +3,7 @@
     session_start();
     require_once("dev/autoload.php");
     $login = new Login;
-	$registration = new Registration;
+	$registration = new Customer;
 	$general = new General;
 	try{
 		
@@ -22,11 +22,12 @@
 			if(!empty($login->updatePassword($username, $account_number, $full_name, $password))){
                 $action ="Update Password";
                 $his = $general->getUserDetailsandAddActivity($username, $action);
-				$result = $registration->getSingleCustomerList($username);
+				$result = $registration->getSingleCustomerList($username, $account_number);
 				$_SESSION['username'] = $result['username'];
 				$_SESSION['full_name'] = $result['full_name'];
 				$_SESSION['account_number'] = $result['account_number'];
 				$_SESSION['id'] = $result['registration_id'];
+				$_SESSION['customer_id'] = $result['customer_id'];
                 //$action ="Logged In";
                 //$his = $general->getUserDetailsandAddActivity($username, $action);
 				$login =  $general->useForgotLogin($action, $username);

@@ -1,5 +1,5 @@
 <?php 
-    class Registration{
+    class Customer{
 
         private $registration_id;
         private $full_name ; 
@@ -95,7 +95,16 @@
 			return $query->fetchAll(PDO::FETCH_ASSOC);
 		}
 
-		public function getSingleCustomerList($username)
+		public function getSingleCustomerList($username, $account_number)
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT * FROM registration WHERE username=:username OR account_number=:account_number");
+            $query->bindValue(":account_number", $account_number);
+            $query->bindValue(":username", $username);
+			$query->execute();
+			return $query->fetch();
+        }
+		public function getSingleDetails($username)
 		{
 			$db = Database::getInstance()->getConnection();
             $query = $db->prepare("SELECT * FROM registration WHERE username=:username");
