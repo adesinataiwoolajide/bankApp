@@ -37,7 +37,7 @@ $return = $_SERVER['HTTP_REFERER'];
                                  try{
                                     if(isset($_POST['check-balance'])){
                             
-                                        $account_number = $_SESSION['account_number'];
+                                        $account_number =  $general->sanitizeInput($_POST['account_number']);;
                                         $start =  $general->sanitizeInput($_POST['bdate']);
                                         $end =  $general->sanitizeInput($_POST['vdate']);
                                         $cut = explode("-", $start);
@@ -54,10 +54,11 @@ $return = $_SERVER['HTTP_REFERER'];
                                                 <thead>
                                                     <tr>
                                                         
-                                                        <th >Stmt Id</th>
+                                                        <th >Account</th>
                                                         <th >Start Date</th>
                                                         <th >End Date</th>
                                                         <th >Amount</th>
+                                                        <th>Status </th>
                                                         <th >Desc</th>
                                                         <th >Transaction</th>
                                                             
@@ -77,15 +78,24 @@ $return = $_SERVER['HTTP_REFERER'];
                                                         if(($starting == $starting_date) AND ($last == $ending_date)){ ?>
                                                             <tr class="gradeX">
                                                            
-                                                                <td><?php $stmtid = $split[1];
-                                                                    $stmt = explode(":", $stmtid);
-                                                                    echo $stmt[1];
+                                                                <td><?php echo $account_number
+                                                                    // $stmtid = $split[1];
+                                                                    // $stmt = explode(":", $stmtid);
+                                                                    // echo $stmt[1];
                                                                 ?></td>
                                                                 <td><?php  echo $starting_date; ?></td>
                                                                 <td><?php echo $ending_date; ?></td>
                                                                 <td><?php $amount = $split[4]; 
                                                                     $amo = explode(":", $amount);
                                                                     echo $amo[1]; ?>
+                                                                </td>
+                                                                <td><?php 
+                                                                    $status = substr($amo[1], 0,1);
+                                                                    if($status!= "-" ){ ?>
+                                                                            <p style="color: green"> CR</p><?php
+                                                                    } else{ ?>
+                                                                        <p style="color: red"> DR</p><?php
+                                                                    }?>
                                                                 </td>
                                                                 <td><?php  $description = $split[5]; 
                                                                     $des = explode(":", $description);
@@ -110,10 +120,11 @@ $return = $_SERVER['HTTP_REFERER'];
                                                     <tr>
                                                         <tr>
                                                             
-                                                            <th >Stmt Id</th>
+                                                            <th >Account</th>
                                                             <th >Start Date</th>
                                                             <th >End Date</th>
                                                             <th >Amount</th>
+                                                            <th>Status </th>
                                                             <th >Desc</th>
                                                             <th >Transaction</th>
                                                             

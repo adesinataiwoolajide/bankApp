@@ -47,14 +47,25 @@
                                 <form action="my_statement.php" method="POST" enctype="multipart/form-data">
                                     
                                     <div class="form-row">
-                                        <div class="col-sm-6 mb-3">
-                                        <label for="validationDefault02">Start Date</label>
+                                        <div class="col-sm-4 mb-3">
+                                            <label for="validationDefault02">Account Number</label>
+                                           <select class="form-control" required name="account_number">
+                                                <option value=""> -- Select Account Number  -- </option>
+                                                <option value=""> </option><?php 
+                                                foreach($statement->getSingleCustAccount($customerid) as $show){  ?>
+                                                    <option value="<?php echo $show['account'] ?> "><?php echo $show['account'] ?> </option><?php 
+                                                } ?>
+                                            </select>
+                                           
+                                        </div>
+                                        <div class="col-sm-4 mb-3">
+                                            <label for="validationDefault02">Start Date</label>
                                             <input type="date" class="form-control" id="validationDefault01"
                                                 placeholder="Start Date" required name="bdate">
                                            
                                         </div>
-                                        <div class="col-sm-6 mb-3">
-                                        <label for="validationDefault02">End Date</label>
+                                        <div class="col-sm-4 mb-3">
+                                            <label for="validationDefault02">End Date</label>
                                             <input type="date" class="form-control" id="validationDefault02"
                                                 placeholder="End Date" name="vdate"
                                                 required>

@@ -1,13 +1,15 @@
 <?php include_once("header.php");
+    $account_number = $_GET['account_number'];
     $account = $statement->getSingleAccount($account_number);
+    $customer = $statement->getAllSingleCustomerAccount($customerid);
 ?>
 
-<main class="dt-main">
-	<?php include_once("sidebar.php"); ?>
+    <main class="dt-main">
+        <?php include_once("sidebar.php"); ?>
 
-		<div class="dt-content-wrapper">
+        <div class="dt-content-wrapper">
 
-			<div class="dt-content">
+            <div class="dt-content">
                 <div class="row">
 
                     <div class="col-12">
@@ -18,9 +20,10 @@
                                     <ol class="mb-0 breadcrumb">
                                         <li class="breadcrumb-item"><a href="./">Home</a></li>
                                         
+                                        <li class="breadcrumb-item"><a href="account_transactions.php?account_number=<?php echo $account_number ?>">View Transactions</a></li>
+                                        <li class="breadcrumb-item"><a href="accounts.php">View Accounts</a></li>
                                         <li class="breadcrumb-item"><a href="transactions.php">View Transactions</a></li>
-                                        
-                                        <li class="breadcrumb-item active" aria-current="page">List of My Trsansactions </li>
+                                        <li class="breadcrumb-item active" aria-current="page">My Trsansactions on <?php echo $account_number ?> </li>
                                     </ol>
                                     
                                 </div>
@@ -35,7 +38,7 @@
                             <div class="dt-card__body"><?php
                                 if(count($account) ==0){ ?>
                                     <p align="center" style="color: red"><i class="icon icon-table"></i> 
-                                        No Transaction was found for <?php echo $account_number ?>
+                                        No Transaction was found for <?php echo $account ?>
                                     </p><?php
 
                                 }else{ ?>
@@ -46,10 +49,11 @@
                                             <thead>
                                                 <tr>
                                                     <th >Account Number</th>
-                                                    <th >Stmt Id</th>
-                                                    <th >Start Date</th>
-                                                    <th >End Date</th>
+                                                    <!-- <th >Stmt Id</th> -->
+                                                    <th >Booking Date</th>
+                                                    <th >Value Date</th>
                                                     <th >Amount</th>
+                                                    <th>Status </th>
                                                     <th >Desc</th>
                                                     <th >Transaction</th>
                                                         
@@ -67,15 +71,24 @@
                                                     $ending_date = $vdat[2]; ?>
                                                     <tr class="gradeX">
                                                         <td><?php echo $account_number ?></td>
-                                                        <td><?php $stmtid = $split[1];
-                                                            $stmt = explode(":", $stmtid);
-                                                            echo $stmt[1];
-                                                        ?></td>
-                                                        <td><?php  echo $starting_date; ?></td>
-                                                        <td><?php echo $ending_date; ?></td>
+                                                        <?php 
+                                                            // $stmtid = $split[1];
+                                                            // $stmt = explode(":", $stmtid);
+                                                            // echo $stmt[1];
+                                                        ?>
+                                                        <td><?php  echo $ending_date; ?></td>
+                                                        <td><?php echo $starting_date; ?></td>
                                                         <td><?php $amount = $split[4]; 
                                                             $amo = explode(":", $amount);
                                                             echo $amo[1]; ?>
+                                                        </td>
+                                                        <td><?php 
+                                                           $status = substr($amo[1], 0,1);
+                                                           if($status!= "-" ){ ?>
+                                                                <p style="color: green"> CR</p><?php
+                                                           } else{ ?>
+                                                               <p style="color: red"> DR</p><?php
+                                                           }?>
                                                         </td>
                                                         <td><?php  $description = $split[5]; 
                                                             $des = explode(":", $description);
@@ -96,10 +109,11 @@
                                                 <tr>
                                                     <tr>
                                                         <th >Account Number</th>
-                                                        <th >Stmt Id</th>
-                                                        <th >Start Date</th>
-                                                        <th >End Date</th>
+                                                        <!-- <th >Stmt Id</th> -->
+                                                        <th >Booking Date</th>
+                                                        <th >Value Date</th>
                                                         <th >Amount</th>
+                                                        <th>Status </th>
                                                         <th >Desc</th>
                                                         <th >Transaction</th>
                                                         
@@ -129,8 +143,8 @@
 
         </div>
 
-<!-- /customizer sidebar -->
-        </main>
+    <!-- /customizer sidebar -->
+    </main>
     </div>
 </div>
 <!-- /root -->

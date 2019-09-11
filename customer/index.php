@@ -9,14 +9,14 @@
 
 				<!-- Page Header -->
 				<div class="dt-page__header">
-					<h1 class="dt-page__title">Dashboard - <?php echo $_SESSION['full_name'] ?></h1>
+					<h1 class="dt-page__title">Statement Pal Dashboard - <?php echo $_SESSION['full_name'] ?></h1>
 				</div>
 				
 				
 				<div class="row">
 
 					<!-- Grid Item -->
-					<div class="col-xl-3 col-sm-6"  onclick="location.href='transactions.php';">
+					<div class="col-xl-4 col-sm-6"  onclick="location.href='transactions.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-primary text-white">
@@ -30,7 +30,7 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getCountSingleStatement($account_number); ?></div>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getAccountTransctions($customerid); ?></div>
 										<span class="d-block">MY TRANSACTIONS</span>
 									</div>
 									<!-- /media body -->
@@ -44,7 +44,7 @@
 						<!-- /card -->
 
 					</div>
-					<div class="col-xl-3 col-sm-6" onclick="location.href='statements.php';">
+					<div class="col-xl-4 col-sm-6" onclick="location.href='statements.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-secondary text-white">
@@ -75,7 +75,7 @@
 					<!-- /grid item -->
 
 					<!-- Grid Item -->
-					<div class="col-xl-3 col-sm-6"  onclick="location.href='activities.php';">
+					<div class="col-xl-4 col-sm-6"  onclick="location.href='accounts.php';">
 
 						<!-- Card -->
 						<div class="dt-card dt-card__full-height bg-info text-white">
@@ -89,8 +89,8 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $general->getCountLog($username) ?></div>
-										<span class="d-block">MY ACTIVITIES</span>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getCountAccount($customerid) ?></div>
+										<span class="d-block">MY ACCOUNTS</span>
 									</div>
 									<!-- /media body -->
 
@@ -106,34 +106,7 @@
 					<!-- /grid item -->
 
 					<!-- Grid Item -->
-					<div class="col-xl-3 col-sm-6">
-
-						<!-- Card -->
-						<div class="dt-card dt-card__full-height bg-success text-white">
-
-							<!-- Card Body -->
-							<div class="dt-card__body p-xl-8 py-sm-8 py-6 px-4">
-								<!-- Media -->
-								<div class="media">
-
-									<i class="icon icon-queries icon-6x mr-6 align-self-center"></i>
-
-									<!-- Media Body -->
-									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter">1</div>
-										<span class="d-block">NUMBERS OF ACCOUNT</span>
-									</div>
-									<!-- /media body -->
-
-								</div>
-								<!-- /media -->
-							</div>
-							<!-- /card body -->
-
-						</div>
-						<!-- /card -->
-
-					</div>
+					
 				</div>
 				<div class="row">
 

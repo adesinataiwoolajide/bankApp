@@ -8,7 +8,7 @@ class Database{
      */
     protected function __construct(){
 
-        $dbname = "jethro_banking";
+        $dbname = "statement_pal";
         $username = "root";
         $password = "";
         try{

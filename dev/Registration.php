@@ -51,11 +51,12 @@
 				return false;
 			}
 		}
-        public function checkCustomerAccountNumber($account_number)
+        public function checkCustomerAccountNumber($account_number, $username)
 		{
 			$db = Database::getInstance()->getConnection();
-			$query = $db->prepare("SELECT * FROM registration WHERE account_number=:account_number");
+			$query = $db->prepare("SELECT * FROM registration WHERE account_number=:account_number AND username=:username");
 			$query->bindValue(":account_number", $account_number);
+			$query->bindValue(":username", $username);
 			$query->execute();
 			if($query->rowCount() > 0){
 				return true;
@@ -104,15 +105,16 @@
         }
         
 
-        public function addCustomer($full_name, $account_number, $username, $password)
+        public function addCustomer($full_name, $account_number, $username, $password, $customer_id)
         {
             $db = Database::getInstance()->getConnection();
-            $query = $db->prepare("INSERT INTO registration(full_name, account_number, username, password)
-                 VALUES (:full_name, :account_number, :username, :password)");
+            $query = $db->prepare("INSERT INTO registration(full_name, account_number, username, password, customer_id)
+                 VALUES (:full_name, :account_number, :username, :password, :customer_id)");
             $query->bindValue(":full_name", $full_name);
             $query->bindValue(":account_number", $account_number);   
             $query->bindValue(":username", $username);
             $query->bindValue(":password", $password);
+            $query->bindValue(":customer_id", $customer_id);
             if(!empty($query->execute())){
 				return true;
 			}else{

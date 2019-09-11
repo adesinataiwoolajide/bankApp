@@ -17,6 +17,8 @@
 <script src="assets/Toast/js/Toast.min.js"></script>
 <script src="node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="assets/js/custom/datetime-pickers.js"></script>
+<script src="assets/js/service-support.js"></script>
+
     <?php 
     if(isset($_SESSION['success'])){
         $message = $_SESSION['success']; ?>

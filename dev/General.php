@@ -34,7 +34,7 @@
 		public function userAccessLevel($action, $username){
 			
 			$action= $this->operationHistory($action, $username);
-			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Statement Pal Dashboard";
+			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Statement Pal customer";
 			$this->redirect("./");
 			
         }
@@ -42,8 +42,8 @@
 		public function useForgotLogin($action, $username){
 			
 			$action= $this->operationHistory($action, $username);
-			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Statement Pal Dashboard";
-			$this->redirect("dashboard/./");
+			$_SESSION['success'] = $_SESSION['full_name']. " ". "Welcome to Your Statement Pal customer";
+			$this->redirect("customer/./");
 			
         }
         

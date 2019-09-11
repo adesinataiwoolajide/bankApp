@@ -17,9 +17,10 @@
 			}else{
 				$result = $registration->getSingleCustomerList($username);
 				$_SESSION['username'] = $result['username'];
-				$_SESSION['full_name'] = $result['full_name'];
+				$_SESSION['full_name'] = ucwords($result['full_name']);
 				$_SESSION['account_number'] = $result['account_number'];
 				$_SESSION['id'] = $result['registration_id'];
+				$_SESSION['customer_id'] = $result['customer_id'];
 				$action ="Logged In";
 				$his = $general->getUserDetailsandAddActivity($username, $action);
 				$login =  $general->userAccessLevel($action, $username);

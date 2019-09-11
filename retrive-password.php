@@ -52,15 +52,15 @@
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="user-name">User Name</label>
+                                <label >Full Name</label>
                                 <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="User Name" name="full_name" value="<?php echo $result['full_name']; ?>">
+                                       placeholder="User Name" readonly name="full_name" value="<?php echo $result['full_name']; ?>">
                             </div>
                             <!-- /form group -->
 
                            
                             <div class="form-group">
-                                <label class="sr-only" for="user-name">Account Number</label>
+                                <label >Account Number</label>
                                 <input type="number" class="form-control" id="user-name" aria-describedby="user-name"
                                        placeholder="Enter Account Number" name="account_number" readonly value="<?php echo $result['account_number']; ?>">
                             </div>
@@ -76,11 +76,11 @@
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="password-1">Password</label>
+                                <label >Password</label>
                                 <input type="password" class="form-control" id="password-1" placeholder="Password" name="password" required>
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="password-1">Repeat Password</label>
+                                <label >Repeat Password</label>
                                 <input type="password" class="form-control" id="password-1" placeholder="Password" name="repeat" required>
                             </div>
                             <input type="hidden" name="return" value="<?php echo $_SERVER['REQUEST_URI']; ?>">

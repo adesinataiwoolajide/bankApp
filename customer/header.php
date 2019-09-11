@@ -5,11 +5,13 @@ $login = new Login;
 $registration = new Registration;
 $general = new General;
 $statement = new Statement;
-if(!isset($_SESSION['id'])){ ?> <script> window.location=(".././")</script><?php 
+if(!isset($_SESSION['id'])){ ?> 
+<script> window.location=(".././")</script><?php 
 
 }
 $account_number  = $_SESSION['account_number'];
 $username = $_SESSION['username'];
+$customerid = $_SESSION['customer_id'];
 
 ?>
 <!DOCTYPE html>

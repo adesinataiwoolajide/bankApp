@@ -24,7 +24,7 @@
                     <!-- Brand logo -->
                     <div class="dt-login__logo">
                         <a class="dt-brand__logo-link" href="./">
-                            <!-- <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Bank"> -->
+                            <!-- <img class="dt-brand__logo-img" src="customer/assets/images/bank.jpg" alt="Bank"> -->
                         </a>
                     </div>
                     <!-- /brand logo -->
@@ -39,33 +39,33 @@
                     <div class="dt-login__content-inner">
 
                         <!-- Form -->
-                        <form action="dashboard/registration.php" method="POST">
+                        <form action="customer/registration.php" method="POST">
 
                             <!-- Form Group -->
+                            
                             <div class="form-group">
-                                <label class="sr-only" for="user-name">Full Name</label>
-                                <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="Full Name" name="fullname" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="user-name">Account Number</label>
+                                <label>Account Number</label>
                                 <input type="number" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="Enter Account Number" name="account_number" required>
+                                       placeholder="Enter Your Account Number" name="account_number" required>
                             </div>
                             <!-- /form group -->
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="email-1">User Name</label>
+                                <label>E-Mail</label>
                                 <input type="text" class="form-control" id="email-1" aria-describedby="email-1"
-                                       placeholder="Enter User Name" name="username" required>
+                                       placeholder="Enter Your  E-Mail" name="username" required>
                             </div>
                             <!-- /form group -->
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="password-1">Password</label>
-                                <input type="password" class="form-control" id="password-1" placeholder="Password" name="password" required>
+                                <label>Password</label>
+                                <input type="password" class="form-control" id="password-1" placeholder="Enter Your Password" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label >Repeat Password</label>
+                                <input type="password" class="form-control" id="password-1" placeholder="Please Repeat Password" name="repeat" required>
                             </div>
                             <!-- /form group -->
 

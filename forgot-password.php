@@ -44,7 +44,7 @@
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="user-name">User Name</label>
+                                <label >User Name</label>
                                 <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
                                        placeholder="User Name OR Account Number" name="username">
                             </div>

@@ -18,14 +18,14 @@
                         <h1 class="dt-login__title">Login</h1>
                         <!-- /login title -->
 
-                        <p class="f-16">Sign in to Statement Pal.</p>
+                        <p class="f-16">Sign in to Statement Pal with your E-mail or Account Number.</p>
                     </div>
 
 
                     <!-- Brand logo -->
                     <div class="dt-login__logo">
                         <a class="dt-brand__logo-link" href="./">
-                            <!-- <img class="dt-brand__logo-img" src="dashboard/assets/images/bank.jpg" alt="Drift"> -->
+                            <!-- <img class="dt-brand__logo-img" src="customer/assets/images/bank.jpg" alt="Drift"> -->
                         </a>
                     </div>
                     <!-- /brand logo -->
@@ -40,24 +40,22 @@
                     <div class="dt-login__content-inner">
 
                         <!-- Form -->
-                        <form action="dashboard/process_login.php" method="POST">
-
+                        <form action="customer/process_login.php" method="POST">
+                            
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="user-name">User Name</label>
+                                <label >E-Mail</label>
                                 <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
-                                       placeholder="User Name" name="username">
+                                       placeholder="Enter Your E Mail" name="username" required>
                             </div>
                             <!-- /form group -->
-
                            
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label class="sr-only" for="password-1">Password</label>
-                                <input type="password" class="form-control" id="password-1" placeholder="Password" name="password">
+                                <label >Password</label>
+                                <input type="password" class="form-control" id="password-1" placeholder="Password" name="password" reuiredq>
                             </div>
                             <!-- /form group -->
-
                             
                             <!-- Form Group -->
                             <div class="form-group">
