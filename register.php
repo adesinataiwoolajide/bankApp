@@ -25,6 +25,7 @@
                     <div class="dt-login__logo">
                         <a class="dt-brand__logo-link" href="./">
                             <!-- <img class="dt-brand__logo-img" src="customer/assets/images/bank.jpg" alt="Bank"> -->
+                            <p style="color:white">Powered by Packine Systems</p>
                         </a>
                     </div>
                     <!-- /brand logo -->

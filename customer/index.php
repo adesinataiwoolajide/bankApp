@@ -16,6 +16,7 @@
 				<div class="row">
 
 					<!-- Grid Item -->
+					
 					<div class="col-xl-4 col-sm-6"  onclick="location.href='transactions.php';">
 
 						<!-- Card -->
@@ -212,13 +213,13 @@
 												<span class="d-block mb-3">Available on</span>
 												<div class="mb-2">
 													<a href="javascript:void(0)" class="d-inline-block">
-														<img src="assets/images/dashboard/google-play-store.png"
+														<img src="../administrator/assets/images/dashboard/google-play-store.png"
 															alt="Play Store" class="img-fluid">
 													</a>
 												</div>
 												<div>
 													<a href="javascript:void(0)" class="d-inline-block">
-														<img src="assets/images/dashboard/apple-app-store.png"
+														<img src="../administrator/assets/images/dashboard/apple-app-store.png"
 															alt="App Store" class="img-fluid">
 													</a>
 												</div>
@@ -229,7 +230,7 @@
 										<!-- Grid Item -->
 										<div class="col-sm-5 align-self-sm-end text-center text-sm-right">
 											<img class="img-fluid mb-n18"
-												src="assets/images/dashboard/iphone.png" alt="App Store">
+												src="../administrator/assets/images/dashboard/phone2.jpeg" alt="App Store">
 										</div>
 										<!-- /grid item -->
 
@@ -254,7 +255,7 @@
 				
 			
 			<footer class="dt-footer">
-				Copyright Statement Pal © <?php echo date("Y"); ?>
+				Copyright Statement Pal © <?php echo date("Y"); ?> Powered by Packine Systems
 			</footer>
 
         </div>

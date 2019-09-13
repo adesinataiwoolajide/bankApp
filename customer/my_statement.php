@@ -45,7 +45,7 @@ $return = $_SERVER['HTTP_REFERER'];
                                         $starting = $cut[0].$cut[1].$cut[2];
 
                                         $ins = explode("-", $end);
-                                       $last = $ins[0].$ins[1].$ins[2];
+                                        $last = $ins[0].$ins[1].$ins[2];
                             
                                         $account = $statement->getSingleAccount($account_number); ?>
 
@@ -54,11 +54,12 @@ $return = $_SERVER['HTTP_REFERER'];
                                             <table id="data-table" class="table table-striped table-bordered table-hover">
                                                 <thead>
                                                     <tr>
-                                                        
-                                                        <th >Account</th>
-                                                        <th >Start Date</th>
-                                                        <th >End Date</th>
+                                                        <th >S/N</th>
+                                                        <th >Account Number</th>
+                                                        <th >Booking Date</th>
+                                                        <th >Value Date</th>
                                                         <th >Amount</th>
+                                                        <th >Currency</th>
                                                         <th>Status </th>
                                                         <th >Desc</th>
                                                         <th >Transaction</th>
@@ -71,40 +72,45 @@ $return = $_SERVER['HTTP_REFERER'];
                                                     $y=1; 
                                                     foreach ($account as $accounts){
                                                         $split = explode(",", $accounts['stmt']); 
-                                                        $bdate = $split[3]; $bdat = explode(":", $bdate);
+                                                        $curr = $split[2]; 
+                                                        $vdate = $split[3]; 
+                                                        $vdat = explode(":", $vdate);
+                                                        $bdate = $split[4]; $bdat = explode(":", $bdate);
+                                                        $amount = $split[5];
+                                                        $description = $split[6]; 
+                                                        $transref = $split[7]; 
+                                                       
                                                         $ending_date = $bdat[1];
-                                                        $vdate = $split[2]; $vdat = explode(":", $vdate);
-                                                        $starting_date = $vdat[2]; 
+                                                       $starting_date = $vdat[1];
                                                         
                                                         if(($starting == $starting_date) AND ($last == $ending_date)){ ?>
                                                             <tr class="gradeX">
-                                                           
-                                                                <td><?php echo $account_number
-                                                                    // $stmtid = $split[1];
-                                                                    // $stmt = explode(":", $stmtid);
-                                                                    // echo $stmt[1];
-                                                                ?></td>
+                                                                <td><?php echo $y ?></td>
+                                                                <td><?php echo $account_number ?></td>
+                                                                
                                                                 <td><?php  echo $starting_date; ?></td>
                                                                 <td><?php echo $ending_date; ?></td>
-                                                                <td><?php $amount = $split[4]; 
+                                                                <td><?php ; 
                                                                     $amo = explode(":", $amount);
                                                                     echo $amo[1]; ?>
                                                                 </td>
+                                                                <td><?php $currency = explode(":", $curr); echo $currency[1] ?></td>
                                                                 <td><?php 
-                                                                    $status = substr($amo[1], 0,1);
-                                                                    if($status!= "-" ){ ?>
-                                                                            <p style="color: green"> CR</p><?php
-                                                                    } else{ ?>
-                                                                        <p style="color: red"> DR</p><?php
-                                                                    }?>
+                                                                $status = substr($amo[1], 0,1);
+                                                                if($status!= "-" ){ ?>
+                                                                        <p style="color: green"> CR</p><?php
+                                                                } else{ ?>
+                                                                    <p style="color: red"> DR</p><?php
+                                                                }?>
                                                                 </td>
-                                                                <td><?php  $description = $split[5]; 
-                                                                    $des = explode(":", $description);
+                                                                <td><?php  
+                                                                    $des = explode(":,", $description);
                                                                     echo $des[0]; ?>
                                                                 </td>
-                                                                <td><?php  $transref = $split[6]; 
+                                                                <td><?php  
                                                                     $tra = explode(":", $transref);
-                                                                    echo $tra[1]; ?>
+                                                                    $list = $tra[1];
+                                                                    echo substr($list, 0,18); ?>
                                                                 </td>
                                                                 
                                                             </tr><?php 
@@ -120,15 +126,16 @@ $return = $_SERVER['HTTP_REFERER'];
                                                 <tfoot>
                                                     <tr>
                                                         <tr>
-                                                            
-                                                            <th >Account</th>
-                                                            <th >Start Date</th>
-                                                            <th >End Date</th>
+                                                            <th >S/N</th>
+                                                            <th >Account Number</th>
+                                                            <th >Booking Date</th>
+                                                            <th >Value Date</th>
                                                             <th >Amount</th>
+                                                            <th >Currency</th>
                                                             <th>Status </th>
                                                             <th >Desc</th>
                                                             <th >Transaction</th>
-                                                            
+                                                                
                                                         </tr>
                                                     </tr>
                                                 </tfoot>

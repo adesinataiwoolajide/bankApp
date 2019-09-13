@@ -18,9 +18,9 @@
                                     <ol class="mb-0 breadcrumb">
                                         <li class="breadcrumb-item"><a href="./">Home</a></li>
                                         
-                                        <li class="breadcrumb-item"><a href="accounts.php">View Accounts</a></li>
+                                        <li class="breadcrumb-item"><a href="accounts.php">View Transactions</a></li>
                                         
-                                        <li class="breadcrumb-item active" aria-current="page">List of My Accounts </li>
+                                        <li class="breadcrumb-item active" aria-current="page">List of All Customers Transactions </li>
                                     </ol>
                                     
                                 </div>
@@ -33,41 +33,78 @@
                 </div>
                 <div class="row">
 
-                    <!-- Grid Item --><?php 
-                    foreach($statement->getAllAccount() as $list){ 
-                        $accounting = $list['account']; ?>
-                        <div class="col-xl-3 col-sm-6"  onclick="location.href='account_transactions.php?account_number=<?php echo $accounting ?>';">
-
-                            <!-- Card -->
-                            <div class="dt-card dt-card__full-height bg-info text-white">
-
-                                <!-- Card Body -->
-                                <div class="dt-card__body p-xl-8 py-sm-8 py-6 px-4">
-                                    <!-- Media -->
-                                    <div class="media">
-
-                                        <i class="icon icon-user icon-6x mr-6 align-self-center"></i>
-
-                                        <!-- Media Body -->
-                                        <div class="media-body">
-                                            <div class="display-3 font-weight-600 mb-1 init-counter">
-                                                <?php echo $statement->countTransactions($accounting); ?>
-                                            </div>
-                                            <span class="d-block"><b><?php echo $list['account']; ?></b></span>
-                                        </div>
-                                        <!-- /media body -->
-
-                                    </div>
-                                    <!-- /media -->
-                                </div>
-                                <!-- /card body -->
-
-                            </div>
-                            <!-- /card -->
-
-                        </div><?php
-                    }?>
+                    <!-- Grid Item -->
+                   
                     
+                    <div class="dt-card col-md-12">
+
+                        <!-- Card Body -->
+                        <div class="dt-card__body"><?php
+                            if(count($account) ==0){ ?>
+                                <p align="center" style="color: red"><i class="icon icon-table"></i> 
+                                    No Transaction was found for All Customers
+                                </p><?php
+
+                            }else{ ?>
+                                <!-- Tables -->
+                                <div class="table-responsive">
+
+                                    <table id="data-table" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th >Account Number</th>
+                                                <th >Email</th>
+                                                <th >Customer Name</th>
+                                                <th >Customer ID</th>
+                                                <th>Action </th>
+                                                   
+                                            </tr>
+                                        </thead>
+                                    
+                                        <tbody> 
+                                            <?php
+                                            $y=1; 
+                                            foreach($statement->getAllTransAccount() as $accounts){ 
+                                                ?>
+                                                <tr class="gradeX">
+                                                    <td><?php echo $y; ?></td>
+                                                    <td><?php echo $accounts['account'] ?></td>
+                                                    <td><?php echo $accounts['email'] ?></td>
+                                                    <td><?php echo $accounts['customer_name'] ?></td>
+                                                    <td><?php echo $accounts['customerid'] ?></td>
+                                                    <td>
+                                                        <a href="account_transactions.php?account_number=<?php echo $accounts['account'] ?>" class="btn btn-success">
+                                                            <i class="fa fa-list"></i>View
+                                                        </a>
+                                                    </td>
+                                                
+                                                </tr><?php 
+                                                $y++; 
+                                            } ?>
+
+                                        </tbody>
+                                    
+                                        <tfoot>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th >Account Number</th>
+                                                <th >Email</th>
+                                                <th >Customer Name</th>
+                                                <th >Customer ID</th>
+                                                <th>Action </th>
+                                                   
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                </div><?php
+                            
+                            } ?>
+                        </div>
+                        <!-- /card body -->
+
+                    </div>
 					
 					
                 </div>

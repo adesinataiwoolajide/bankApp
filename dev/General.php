@@ -75,6 +75,19 @@
 			}
 		
 		}
+		public function getCustomerLog($username){
+			try{
+                $db = Database::getInstance()->getConnection();
+				$query = $db->prepare("SELECT * FROM activity WHERE user_details  !=:username");
+				$query->bindValue(":username", $username);
+				$query->execute();
+				return $query->fetchAll(PDO::FETCH_ASSOC);
+			}catch(PDOException $e){
+				echo $e->getMessage();
+				return false;
+			}
+		
+		}
 
 		public function getCountLog($username)
 		{

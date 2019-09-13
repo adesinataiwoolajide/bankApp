@@ -60,7 +60,7 @@
 
 									<!-- Media Body -->
 									<div class="media-body">
-										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->getAllCountSingleStatement(); ?></div>
+										<div class="display-3 font-weight-600 mb-1 init-counter"><?php echo $statement->countAllCountSingleStatement(); ?></div>
 										<span class="d-block">CUSTOMER STATEMENTS </span>
 									</div>
 									<!-- /media body -->
@@ -259,7 +259,7 @@
 										<!-- Grid Item -->
 										<div class="col-sm-5 align-self-sm-end text-center text-sm-right">
 											<img class="img-fluid mb-n18"
-												src="assets/images/dashboard/iphone.png" alt="App Store">
+												src="assets/images/dashboard/phone2.jpeg" alt="App Store">
 										</div>
 										<!-- /grid item -->
 
@@ -284,7 +284,7 @@
 				
 			
 			<footer class="dt-footer">
-				Copyright Statement Pal © <?php echo date("Y"); ?>
+				Copyright Statement Pal © <?php echo date("Y"); ?> Powered by Packine Systems
 			</footer>
 
         </div>

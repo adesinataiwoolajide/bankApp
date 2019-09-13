@@ -1,6 +1,6 @@
 <?php include_once("header.php");
     $username = $_SESSION['username'];
-    $log = $general->getLog($username);
+    $log = $general->getCustomerLog($username);
 ?>
 
 <main class="dt-main">
@@ -47,6 +47,7 @@
                                             <thead>
                                                 <tr>
                                                     <th >S/N</th>
+                                                    <th >Customer</th>
                                                     <th >Action</th>
                                                     <th >Time</th>
                                                     
@@ -60,6 +61,7 @@
                                                    ?>
                                                     <tr class="gradeX">
                                                         <td><?php echo $y ?></td>
+                                                        <td><?php echo $logs['user_details'] ?></td>
                                                         <td><?php echo $logs['action'] ?></td>
                                                         <td><?php echo $logs['time_added'] ?></td>
                                                        
@@ -72,6 +74,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <th >S/N</th>
+                                                    <th >Customer</th>
                                                     <th >Action</th>
                                                     <th >Time</th>
                                                     

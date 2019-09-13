@@ -44,10 +44,17 @@
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
         }
+        public function getAllAccounts()
+		{
+			$db = Database::getInstance()->getConnection();
+			$query = $db->prepare("SELECT account FROM statement ORDER BY account ASC");
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
         public function getAllTransAccount()
 		{
 			$db = Database::getInstance()->getConnection();
-			$query = $db->prepare("SELECT account FROM statement");
+			$query = $db->prepare("SELECT DISTINCT account,email,customer_name, customerid FROM statement ORDER BY account ASC");
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -60,6 +67,7 @@
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
 		}
+        
         public function getAllSingleCustomerAccount($customerid)
 		{
 			$db = Database::getInstance()->getConnection();
@@ -100,6 +108,14 @@
 		{
 			$db = Database::getInstance()->getConnection();
             $query = $db->prepare("SELECT count(id) as total_statement FROM statement");
+			$query->execute();
+			$state =$query->fetch();
+			return $state['total_statement'];
+		}
+		public function countAllCountSingleStatement()
+		{
+			$db = Database::getInstance()->getConnection();
+            $query = $db->prepare("SELECT count(DISTINCT account) as total_statement FROM statement");
 			$query->execute();
 			$state =$query->fetch();
 			return $state['total_statement'];

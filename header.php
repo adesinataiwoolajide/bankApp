@@ -16,20 +16,20 @@
 <title>STATEMENT PAL</title>
 
 <!-- Site favicon -->
-<link rel="shortcut icon" href="dashboard/assets/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="administrator//assets/images/log.jpg" type="image/x-icon">
 <!-- /site favicon -->
 
 <!-- Font Icon Styles -->
-<link rel="stylesheet" href="dashboardnode_modules/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet" href="administrator/node_modules/flag-icon-css/css/flag-icon.min.css">
 <link rel="stylesheet" href="vendors/gaxon-icon/styles.css">
 <!-- /font icon Styles -->
 
 <!-- Perfect Scrollbar stylesheet -->
-<link rel="stylesheet" href="dashboardnode_modules/perfect-scrollbar/css/perfect-scrollbar.css">
+<link rel="stylesheet" href="administrator/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
 <!-- /perfect scrollbar stylesheet -->
 
-<!-- Load Styles -->    <link rel="stylesheet" href="dashboard/assets/css/semidark-style-1.min.css">
+<!-- Load Styles -->    <link rel="stylesheet" href="administrator//assets/css/semidark-style-1.min.css">
     <!-- /load styles -->
-    <link rel="stylesheet" type="text/css" href="dashboard/assets/Toast/css/Toast.min.css">
+    <link rel="stylesheet" type="text/css" href="administrator//assets/Toast/css/Toast.min.css">
 </head>
 <body class="dt-sidebar--fixed dt-header--fixed">

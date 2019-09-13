@@ -1,5 +1,5 @@
 <?php include_once("header.php");
-    $account = $statement->getAllTransAccount();
+    $account = $statement->getAllAccount();
 ?>
 
     <main class="dt-main">
@@ -18,10 +18,9 @@
                                     <ol class="mb-0 breadcrumb">
                                         <li class="breadcrumb-item"><a href="./">Home</a></li>
                                         
-                                        <li class="breadcrumb-item"><a href="transactions.php">View All Transactions</a></li>
-                                        <li class="breadcrumb-item"><a href="accounts.php">View My Accounts</a></li>
+                                        <li class="breadcrumb-item"><a href="transactions.php">View Transactions</a></li>
                                         
-                                        <li class="breadcrumb-item active" aria-current="page">List of My Trsansactions </li>
+                                        <li class="breadcrumb-item active" aria-current="page">List of All Customers Transactions </li>
                                     </ol>
                                     
                                 </div>
@@ -29,112 +28,89 @@
                             
                         </div>
                     
-                        <!-- Card -->
-                        <div class="dt-card">
-
-                            <!-- Card Body -->
-                            <div class="dt-card__body"><?php
-                                if(count($account) ==0){ ?>
-                                    <p align="center" style="color: red"><i class="icon icon-table"></i> 
-                                        No Transaction was found for All Customers
-                                    </p><?php
-
-                                }else{ ?>
-                                    <!-- Tables -->
-                                    <div class="table-responsive">
-
-                                        <table id="data-table" class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th >Account Number</th>
-                                                    <!-- <th >Stmt Id</th> -->
-                                                    <th >Booking Date</th>
-                                                    <th >Value Date</th>
-                                                    <th >Amount</th>
-                                                    <th>Status </th>
-                                                    <th >Desc</th>
-                                                    <th >Transaction</th>
-                                                        
-                                                </tr>
-                                            </thead>
-                                        
-                                            <tbody> 
-                                                <?php
-                                                $y=1; 
-                                                foreach ($account as $accounts){
-                                                    $split = explode(",", $accounts['stmt']); 
-                                                    $bdate = $split[3]; $bdat = explode(":", $bdate);
-                                                    $starting_date = $bdat[1];
-                                                    $vdate = $split[2]; $vdat = explode(":", $vdate);
-                                                    $ending_date = $vdat[2]; ?>
-                                                    <tr class="gradeX">
-                                                        <td><?php echo $accounts['account'] ?></td>
-                                                       <?php 
-                                                            //$stmtid = $split[1];
-                                                           // $stmt = explode(":", $stmtid);
-                                                            //echo $stmt[1];
-                                                        ?>
-                                                        <td><?php  echo $ending_date; ?></td>
-                                                        <td><?php echo $starting_date; ?></td>
-                                                        <td><?php $amount = $split[4]; 
-                                                            $amo = explode(":", $amount);
-                                                            echo $amo[1]; ?>
-                                                        </td>
-                                                        <td><?php 
-                                                           $status = substr($amo[1], 0,1);
-                                                           if($status!= "-" ){ ?>
-                                                                <p style="color: green"> CR</p><?php
-                                                           } else{ ?>
-                                                               <p style="color: red"> DR</p><?php
-                                                           }?>
-                                                        </td>
-                                                        <td><?php  $description = $split[5]; 
-                                                            $des = explode(":", $description);
-                                                            echo $des[0]; ?>
-                                                        </td>
-                                                        <td><?php  $transref = $split[6]; 
-                                                            $tra = explode(":", $transref);
-                                                            echo $tra[1]; ?>
-                                                        </td>
-                                                        
-                                                    </tr><?php 
-                                                    $y++; 
-                                                } ?>
-
-                                            </tbody>
-                                        
-                                            <tfoot>
-                                                <tr>
-                                                    <tr>
-                                                        <th >Account Number</th>
-                                                        <!-- <th >Stmt Id</th> -->
-                                                        <th >Booking Date</th>
-                                                        <th >Value Date</th>
-                                                        <th >Amount</th>
-                                                        <th>Status </th>
-                                                        <th >Desc</th>
-                                                        <th >Transaction</th>
-                                                        
-                                                    </tr>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-
-                                    </div><?php
-                                
-                                } ?>
-                            </div>
-                            <!-- /card body -->
-
-                        </div>
-                        <!-- /card -->
-
-                    
+                       
                     </div>
                 </div>
-                
+                <div class="row">
+
+                    <!-- Grid Item -->
+                   
+                    
+                    <div class="dt-card col-md-12">
+
+                        <!-- Card Body -->
+                        <div class="dt-card__body"><?php
+                            if(count($account) ==0){ ?>
+                                <p align="center" style="color: red"><i class="icon icon-table"></i> 
+                                    No Transaction was found for All Customers
+                                </p><?php
+
+                            }else{ ?>
+                                <!-- Tables -->
+                                <div class="table-responsive">
+
+                                    <table id="data-table" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th >Account Number</th>
+                                                <th >Email</th>
+                                                <th >Customer Name</th>
+                                                <th >Customer ID</th>
+                                                <th>Action </th>
+                                                   
+                                            </tr>
+                                        </thead>
+                                    
+                                        <tbody> 
+                                            <?php
+                                            $y=1; 
+                                            foreach($statement->getAllTransAccount() as $accounts){ 
+                                                ?>
+                                                <tr class="gradeX">
+                                                    <td><?php echo $y; ?></td>
+                                                    <td><?php echo $accounts['account'] ?></td>
+                                                    <td><?php echo $accounts['email'] ?></td>
+                                                    <td><?php echo $accounts['customer_name'] ?></td>
+                                                    <td><?php echo $accounts['customerid'] ?></td>
+                                                    <td>
+                                                        <a href="account_transactions.php?account_number=<?php echo $accounts['account'] ?>" class="btn btn-success">
+                                                            <i class="fa fa-list"></i> View
+                                                        </a>
+                                                    </td>
+                                                
+                                                </tr><?php 
+                                                $y++; 
+                                            } ?>
+
+                                        </tbody>
+                                    
+                                        <tfoot>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th >Account Number</th>
+                                                <th >Email</th>
+                                                <th >Customer Name</th>
+                                                <th >Customer ID</th>
+                                                <th>Action </th>
+                                                   
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                </div><?php
+                            
+                            } ?>
+                        </div>
+                        <!-- /card body -->
+
+                    </div>
+					
+					
+                </div>
             </div>
-        
+
+            
             <footer class="dt-footer">
                 Copyright Jethro Systems © <?php echo date("Y"); ?>
             </footer>

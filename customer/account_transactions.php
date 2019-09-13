@@ -50,11 +50,12 @@
                                         <table id="data-table" class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
+                                                    <th >S/N</th>
                                                     <th >Account Number</th>
-                                                    <!-- <th >Stmt Id</th> -->
                                                     <th >Booking Date</th>
                                                     <th >Value Date</th>
                                                     <th >Amount</th>
+                                                    <th >Currency</th>
                                                     <th>Status </th>
                                                     <th >Desc</th>
                                                     <th >Transaction</th>
@@ -67,23 +68,27 @@
                                                 $y=1; 
                                                 foreach ($account as $accounts){
                                                     $split = explode(",", $accounts['stmt']); 
-                                                    $bdate = $split[3]; $bdat = explode(":", $bdate);
+                                                    $curr = $split[2]; 
+                                                    $vdate = $split[3]; 
+                                                    $vdat = explode(":", $vdate);
+                                                    $bdate = $split[4]; $bdat = explode(":", $bdate);
+                                                    $amount = $split[5];
+                                                    $description = $split[6]; 
+                                                    $transref = $split[7]; 
+                                                   
                                                     $starting_date = $bdat[1];
-                                                    $vdate = $split[2]; $vdat = explode(":", $vdate);
-                                                    $ending_date = $vdat[2]; ?>
+                                                    $ending_date = $vdat[1]; ?>
                                                     <tr class="gradeX">
+                                                        <td><?php echo $y ?></td>
                                                         <td><?php echo $account_number ?></td>
-                                                        <?php 
-                                                            // $stmtid = $split[1];
-                                                            // $stmt = explode(":", $stmtid);
-                                                            // echo $stmt[1];
-                                                        ?>
+                                                        
                                                         <td><?php  echo $ending_date; ?></td>
                                                         <td><?php echo $starting_date; ?></td>
-                                                        <td><?php $amount = $split[4]; 
+                                                        <td><?php ; 
                                                             $amo = explode(":", $amount);
                                                             echo $amo[1]; ?>
                                                         </td>
+                                                        <td><?php $currency = explode(":", $curr); echo $currency[1] ?></td>
                                                         <td><?php 
                                                            $status = substr($amo[1], 0,1);
                                                            if($status!= "-" ){ ?>
@@ -92,13 +97,14 @@
                                                                <p style="color: red"> DR</p><?php
                                                            }?>
                                                         </td>
-                                                        <td><?php  $description = $split[5]; 
-                                                            $des = explode(":", $description);
+                                                        <td><?php  
+                                                            $des = explode(":,", $description);
                                                             echo $des[0]; ?>
                                                         </td>
-                                                        <td><?php  $transref = $split[6]; 
+                                                        <td><?php  
                                                             $tra = explode(":", $transref);
-                                                            echo $tra[1]; ?>
+                                                            $list = $tra[1];
+                                                            echo substr($list, 0,18); ?>
                                                         </td>
                                                         
                                                     </tr><?php 
@@ -110,11 +116,13 @@
                                             <tfoot>
                                                 <tr>
                                                     <tr>
+                                                        <th >S/N</th>
                                                         <th >Account Number</th>
-                                                        <!-- <th >Stmt Id</th> -->
+                                                        
                                                         <th >Booking Date</th>
                                                         <th >Value Date</th>
                                                         <th >Amount</th>
+                                                        <th >Currency</th>
                                                         <th>Status </th>
                                                         <th >Desc</th>
                                                         <th >Transaction</th>

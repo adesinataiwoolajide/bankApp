@@ -28,7 +28,7 @@ $username = $_SESSION['username'];
 <title>STATEMENT PAL</title>
 
 	<!-- Site favicon -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="assets/images/log.jpg" type="image/x-icon">
 	<link rel="stylesheet" href="node_modules/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="vendors/gaxon-icon/styles.css">
     <link rel="stylesheet" href="node_modules/perfect-scrollbar/css/perfect-scrollbar.css">

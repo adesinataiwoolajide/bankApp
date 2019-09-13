@@ -19,7 +19,7 @@
                                         <li class="breadcrumb-item"><a href="./">Home</a></li>
                                         
                                         <li class="breadcrumb-item"><a href="statements.php">View Statements</a></li>
-                                        
+                                        <li class="breadcrumb-item"><a href="transactions.php">View Transactions</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">List of Bank Statement </li>
                                     </ol>
                                     

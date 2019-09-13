@@ -16,21 +16,13 @@
                 </a>
             </li>
             <li class="dt-side-nav__item">
-                <a href="accounts.php" class="dt-side-nav__link" title="Layouts">
+                <a href="transactions.php" class="dt-side-nav__link" title="Layouts">
                     <i class="icon icon-user icon-fw icon-lg"></i>
-                    <span class="dt-side-nav__text">Accounts </span>
+                    <span class="dt-side-nav__text">All Transactions </span>
                     <small class="badge float-right badge-primary"><?php echo $statement->getAllCountAccount(); ?></small>
                 </a>
             </li>
-            <li class="dt-side-nav__item">
-                <a href="transactions.php" class="dt-side-nav__link" title="Layouts">
-                    <i class="icon icon-layout icon-fw icon-lg"></i>
-                    <span class="dt-side-nav__text">All Transactions</span> 
-                    <small class="badge float-right badge-primary">
-                    <?php echo $statement->getAllAccountTransctions(); ?>
-                    </small> 
-                </a>
-            </li>
+            
             <li class="dt-side-nav__item">
                 <a href="statements.php" class="dt-side-nav__link" title="Layouts">
                     <i class="icon icon-layout icon-fw icon-lg"></i>
@@ -38,13 +30,13 @@
                     <small class="badge float-right badge-primary"><?php echo $statement->getAllCountSingleStatement(); ?></small>
                 </a>
             </li>
-            <li class="dt-side-nav__item">
+            <!-- <li class="dt-side-nav__item">
                 <a href="activities.php" class="dt-side-nav__link" title="Metrics">
                     <i class="icon icon-list icon-fw icon-lg"></i>
                     <span class="dt-side-nav__text">My Activities</span>
                     <small class="badge float-right badge-primary"><?php echo $general->getCountLog($username); ?></small>
                 </a>
-            </li>
+            </li> -->
             <li class="dt-side-nav__item">
                 <a href="activities.php" class="dt-side-nav__link" title="Metrics">
                     <i class="icon icon-list icon-fw icon-lg"></i>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2019 at 05:23 PM
+-- Generation Time: Sep 13, 2019 at 12:50 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.2.17
 
@@ -126,7 +126,28 @@ INSERT INTO `activity` (`act_id`, `action`, `user_details`, `time_added`) VALUES
 (74, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:24:39'),
 (75, 'Logged Out', 'tolajide74@gmail.com', '2019-09-11 14:24:41'),
 (76, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:47:18'),
-(77, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:47:18');
+(77, 'Logged In', 'tolajide74@gmail.com', '2019-09-11 14:47:18'),
+(78, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 07:59:30'),
+(79, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 07:59:30'),
+(80, 'Logged Out', 'tolajide74@gmail.com', '2019-09-13 08:05:50'),
+(81, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:08:40'),
+(82, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:08:40'),
+(83, 'Logged Out', 'tolajide74@gmail.com', '2019-09-13 08:12:34'),
+(84, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:13:11'),
+(85, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:13:11'),
+(86, 'Logged Out', 'tolajide74@gmail.com', '2019-09-13 08:16:50'),
+(87, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:16:52'),
+(88, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:16:52'),
+(89, 'Logged Out', 'tolajide74@gmail.com', '2019-09-13 08:17:04'),
+(90, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:17:11'),
+(91, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 08:17:11'),
+(92, 'Logged Out', 'tolajide74@gmail.com', '2019-09-13 10:03:57'),
+(93, 'Registered Account', 'rafael.nadal@testing.com', '2019-09-13 10:04:57'),
+(94, 'Logged In', 'rafael.nadal@testing.com', '2019-09-13 10:05:04'),
+(95, 'Logged In', 'rafael.nadal@testing.com', '2019-09-13 10:05:04'),
+(96, 'Logged Out', 'rafael.nadal@testing.com', '2019-09-13 10:40:52'),
+(97, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 10:40:59'),
+(98, 'Logged In', 'tolajide74@gmail.com', '2019-09-13 10:40:59');
 
 -- --------------------------------------------------------
 
@@ -171,7 +192,8 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`registration_id`, `full_name`, `account_number`, `username`, `password`, `customer_id`, `created_at`) VALUES
-(2, 'ADESOLA KOLA', '1000818831', 'tolajide74@gmail.com', 'b63e58a251cbdb2678919dbcd79fdc519c927304', '727592', '2019-09-11 11:43:20');
+(2, 'ADESOLA KOLA', '1000818831', 'tolajide74@gmail.com', 'b63e58a251cbdb2678919dbcd79fdc519c927304', '727592', '2019-09-11 11:43:20'),
+(3, 'MOSUNMOLA SHOMUYIWA', '1000797096', 'rafael.nadal@testing.com', 'd129714f4d8a7e26b7fbe81bca2d5d5eab113d94', '684462', '2019-09-13 10:04:57');
 
 -- --------------------------------------------------------
 
@@ -193,11 +215,16 @@ CREATE TABLE `statement` (
 --
 
 INSERT INTO `statement` (`id`, `account`, `stmt`, `customerid`, `customer_name`, `email`) VALUES
-(11, '1000818832', '{acctid:1000818832,stmtid:183002558339788.020001,stmtjson:{vdate:20180118,bdate:20180124,amt:-200000,description:,transref:AAACT1802499846F1C}}', 727591, 'CHIMAEZE', 'tolajide75@gmail.com'),
-(12, '1000818833', '{acctid:1000818832,stmtid:183002558339788.040001,stmtjson:{vdate:20180118,bdate:20180124,amt:-4000,description:,transref:AAACT1802499846F4P}}', 727591, 'CHIMAEZE', 'ilemobayosamson@gmail.com'),
-(13, '1000818832', '{acctid:1000818832,stmtid:183002558339788.060001,stmtjson:{vdate:20180118,bdate:20180124,amt:200,description:,transref:AAACT1802499846F4R}}', 727591, 'CHIMAEZE', 'tolajide75@gmail.com'),
-(14, '1000818831', '{acctid:1000818832,stmtid:183000915539846.000001,stmtjson:{vdate:20180118,bdate:20180124,amt:4000,description:,transref:AAACT180243B4XSHSR}}', 727592, 'ADESOLA KOLA', 'tolajide74@gmail.com'),
-(15, '1000818831', '{acctid:1000818832,stmtid:183000915539846.000002,stmtjson:{vdate:20180118,bdate:20180124,amt:200,description:,transref:AAACT180243B4XSHSR}}', 727592, 'ADESOLA KOLA', 'tolajide74@gmail.com');
+(1, '1000818832', '{acctid:1000818832,stmtid:183002558339788.020001,currency:NGN,vdate:20180118,bdate:20180124,amt:-200000,description:,transref:AAACT1802499846F1C}', 727592, 'CHIMAEZE ADAOBI', 'local.man@nuclear.com'),
+(2, '1000818832', '{acctid:1000818832,stmtid:183002558339788.040001,currency:NGN,vdate:20180118,bdate:20180124,amt:-4000,description:,transref:AAACT1802499846F4P}', 727592, 'CHIMAEZE ADAOBI', 'local.man@nuclear.com'),
+(3, '1000818832', '{acctid:1000818832,stmtid:183002558339788.060001,currency:NGN,vdate:20180118,bdate:20180124,amt:-200,description:,transref:AAACT1802499846F4R}', 727592, 'CHIMAEZE ADAOBI', 'local.man@nuclear.com'),
+(4, '1000818832', '{acctid:1000818832,stmtid:183000915539846.000001,currency:NGN,vdate:20180118,bdate:20180124,amt:4000,description:,transref:AAACT180243B4XSHSR}', 727592, 'CHIMAEZE ADAOBI', 'local.man@nuclear.com'),
+(5, '1000818832', '{acctid:1000818832,stmtid:183000915539846.000002,currency:NGN,vdate:20180118,bdate:20180124,amt:200,description:,transref:AAACT180243B4XSHSR}', 727592, 'CHIMAEZE ADAOBI', 'local.man@nuclear.com'),
+(6, '1000797096', '{acctid:1000797096,stmtid:182961532662239.020001,currency:NGN,vdate:20180115,bdate:20180119,amt:-150000,description:,transref:AAACT180195KPHKN0P}', 684462, 'MOSUNMOLA SHOMUYIWA', 'rafael.nadal@testing.com'),
+(7, '1000797096', '{acctid:1000797096,stmtid:182961532662240.000001,currency:NGN,vdate:20180114,bdate:20180117,amt:-3000,description:,transref:AAACT180195KPHKN3V}', 684462, 'MOSUNMOLA SHOMUYIWA', 'rafael.nadal@testing.com'),
+(8, '1000797096', '{acctid:1000797096,stmtid:182961532662240.020001,currency:NGN,vdate:20180112,bdate:20180121,amt:-200,description:,transref:AAACT180195KPHKN70}', 684462, 'MOSUNMOLA SHOMUYIWA', 'rafael.nadal@testing.com'),
+(9, '1000797096', '{acctid:1000797096,stmtid:182967678762357.030001,currency:NGN,vdate:20180115,bdate:20180119,amt:3000,description:,transref:AAACT18019WX6GXFTN}', 684462, 'MOSUNMOLA SHOMUYIWA', 'rafael.nadal@testing.com'),
+(10, '1000797096', '{acctid:1000797096,stmtid:182967678762357.030002,currency:NGN,vdate:20180115,bdate:20180119,amt:200,description:,transref:AAACT18019WX6GXFTN}', 684462, 'MOSUNMOLA SHOMUYIWA', 'rafael.nadal@testing.com');
 
 --
 -- Indexes for dumped tables
@@ -235,25 +262,25 @@ ALTER TABLE `statement`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `act_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `act_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `administrator`
 --
 ALTER TABLE `administrator`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `registration_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `registration_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `statement`
 --
 ALTER TABLE `statement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
